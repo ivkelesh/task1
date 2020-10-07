@@ -1,0 +1,43 @@
+import java.util.ArrayList;
+import java.sql.Timestamp;
+/**
+ *
+ * @author Иван Келеш
+ */
+   class User{
+    public  String FirstName;
+    public  String LastName;
+    public  int age;
+    public  String email;
+    public  String status;
+    String[] statuses = {"ACTIVE", "INACTIVE", "BLOCKED", "NEW"};
+    Timestamp timestamp;
+
+    User(String FirstName, String LastName, int age,String email) {
+        this.FirstName = FirstName;
+        this.LastName = LastName;
+        this.age = age;
+        this.email = email;
+        this.status = status;
+        this.timestamp = new Timestamp(System.currentTimeMillis());
+        if (timestamp.equals(System.currentTimeMillis())){
+            status = statuses[3];
+        }   
+        else{
+            status = statuses[0];
+        }
+        }
+    }
+   
+
+public class Application  {
+  
+
+    public static void main(String[] args) {
+        ArrayList users = new ArrayList();
+        
+        User user1 = new User("Ivan", "Keles", 21, "iv.keles@gmail.com");
+        users.add(user1);
+        System.out.println(user1.status);
+    }
+}
